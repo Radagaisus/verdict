@@ -51,7 +51,8 @@
             var dir, val;
             dir = 2 * (x < change.pageX) - 1;
             val = Number(elem.text().replace(/,/g, ''));
-            val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity);
+            val = Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity);
+            if (o.min != null) val = Math.max(val, o.min);
             if (o.integer != null) val = Math.floor(val);
             elem.text($.format.num(val));
             x = change.pageX;
