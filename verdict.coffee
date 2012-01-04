@@ -21,7 +21,7 @@
   # -34234235 => -34,234,235
   # I am so gonna regret this later
   $.format ||= {}
-  $.format.num = (num) -> (''+num).replace(/(\d+)(\..*)?/, ($0,$1,$2) -> $1.replace(/(\d)(?=(\d{3})+$)/g,'$1,') + $2)
+  $.format.num = (num) -> (''+num).replace(/(\d+)(\..*)?/, ($0,$1,$2) -> $1.replace(/(\d)(?=(\d{3})+$)/g,'$1,') + ($2 || ''))
   
   $.fn.numbers = (o) ->
     defaults =
