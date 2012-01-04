@@ -15,8 +15,6 @@
     integer: false
 ###
 
-# FIXME: velocity, no need for max or min, flots
-
 (($) ->
   # -34234235 => -34,234,235
   # I am so gonna regret this later
@@ -50,8 +48,7 @@
           val = Math.floor(val) if o.integer?
           elem.text($.format.num val)
           x = change.pageX
-          console.log $.format.num val
-          
+           
           elem.trigger 'verdict_change', val
       
       $(window).mouseup ->
