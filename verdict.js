@@ -23,7 +23,7 @@
     $.format || ($.format = {});
     $.format.num = function(num) {
       return ('' + num).replace(/(\d+)(\..*)?/, function($0, $1, $2) {
-        return $1.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + $2;
+        return $1.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + ($2 || '');
       });
     };
     return $.fn.numbers = function(o) {
@@ -55,6 +55,7 @@
             if (o.integer != null) val = Math.floor(val);
             elem.text($.format.num(val));
             x = change.pageX;
+            console.log($.format.num(val));
             return elem.trigger('verdict_change', val);
           });
         });
