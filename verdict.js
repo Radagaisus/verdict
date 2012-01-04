@@ -55,7 +55,6 @@
             if (o.integer != null) val = Math.floor(val);
             elem.text($.format.num(val));
             x = change.pageX;
-            console.log($.format.num(val));
             return elem.trigger('verdict_change', val);
           });
         });
