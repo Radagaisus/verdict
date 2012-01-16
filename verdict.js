@@ -23,7 +23,7 @@
     $.format || ($.format = {});
     $.format.num = function(num) {
       return ('' + num).replace(/(\d+)(\..*)?/, function($0, $1, $2) {
-        return $1.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + $2;
+        return $1.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + ($2 || '');
       });
     };
     return $.fn.numbers = function(o) {
@@ -51,8 +51,7 @@
             var dir, val;
             dir = 2 * (x < change.pageX) - 1;
             val = Number(elem.text().replace(/,/g, ''));
-            val = Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity);
-            if (o.min != null) val = Math.max(val, o.min);
+            val = Math.max(Math.min(val + dir * o.step * (Math.abs(change.pageX - x) / o.growth), o.max || Infinity), o.min || -Infinity);
             if (o.integer != null) val = Math.floor(val);
             elem.text($.format.num(val));
             x = change.pageX;
