@@ -16,7 +16,7 @@
 }
 
 /* Boolean Toggling */
-.boolean-toggle {
+.toggle {
 	color: #F2A622;
 	border-bottom: 1px dashed #F2A622;
 	cursor: pointer;
