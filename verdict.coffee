@@ -74,6 +74,9 @@
     
     # Add the event handlers
     toggle = (elem) ->
+      children = elem.children()
+      for i in [1...children.length]
+        children[i].style.display = "none"
       elem.click (e) ->
         children = elem.children()
         n = 0

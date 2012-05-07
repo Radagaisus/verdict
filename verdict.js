@@ -89,11 +89,16 @@
     return $.fn.toggle_select = function() {
       var toggle;
       toggle = function(elem) {
+        var children, i, _i, _ref;
+        children = elem.children();
+        for (i = _i = 1, _ref = children.length; 1 <= _ref ? _i < _ref : _i > _ref; i = 1 <= _ref ? ++_i : --_i) {
+          children[i].style.display = "none";
+        }
         return elem.click(function(e) {
-          var children, i, n, _i, _ref;
+          var i, n, _j, _ref1;
           children = elem.children();
           n = 0;
-          for (i = _i = 0, _ref = children.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+          for (i = _j = 0, _ref1 = children.length; 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
             if (children[i].style.display !== "none") {
               n = (i + 1) % children.length;
             }
