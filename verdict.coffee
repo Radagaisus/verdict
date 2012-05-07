@@ -65,20 +65,23 @@
 
 ### 
  usage:
-  add adjustable_bool class if you want some spiffy css
-  $("#cookies").bool_select
-    first: 'something'
-    second: 'another thing'
+  add toggle class if you want some spiffy css
+  $("#cookies").toggle_select
+    list of alternative contents
 ###
 (($) ->
-  $.fn.bool_select = (o) ->
+  $.fn.toggle_select = (o) ->
     
     # Add the event handlers
-    bool = (elem, first) ->
+    toggle = (elem) ->
       elem.click (e) ->
-        if elem.text() == o.first then elem.text(o.second) else elem.text(o.first)
+        n = 0
+        for n in [0..o.length - 1]
+          if o[n] == elem.text()
+            elem.text(o[(n + 1) % o.length])
+            break
         elem.trigger('verdict_change', elem.text())
     
     @each ->
-      bool $(@), 
+      toggle $(@), 
 )(window.jQuery)
