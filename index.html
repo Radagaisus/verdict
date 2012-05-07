@@ -244,14 +244,14 @@ $("#ralph-nader").numbers({max: 1000000, min: 2, step: 80});</pre>
 		</div>
 		
 		<div class='desc'>
-			<h2>Boolean Flip</h2>
+			<h2>Toggle</h2>
 			<div class='example'>
-				<blockquote>Theodore Robert "Ted" Bundy  was an American <span class='boolean-toggle' id='ted1'>serial killer</span>, <span id='ted2' class='boolean-toggle' >rapist</span>, <span id='ted3' class='boolean-toggle' >kidnapper</span>, and <span id='ted4' class='boolean-toggle' >necrophile</span> who assaulted and murdered numerous young women during the 1970s, and possibly earlier. </blockquote>
+				<blockquote>Theodore Robert "Ted" Bundy  was an American <span class='toggle' id='ted1'>serial killer</span>, <span id='ted2' class='toggle' >rapist</span>, <span id='ted3' class='toggle' >kidnapper</span>, and <span id='ted4' class='toggle' >necrophile</span> who assaulted and murdered numerous young women during the 1970s, and possibly earlier. </blockquote>
 				<pre class='sh_javascript_dom'>
-$("#ted1").bool_select({first: 'serial killer', second: 'serial entrepreneur'});
-$("#ted2").bool_select({first: 'rapist', second: 'rapper'});
-$("#ted3").bool_select({first: 'kidnapper', second: 'babysitter'});
-$("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man'});</pre>
+$("#ted1").toggle_select(['serial killer', 'serial entrepreneur']);
+$("#ted2").toggle_select(['rapist', 'rapper', 'flapper']);
+$("#ted3").toggle_select(['kidnapper', 'babysitter']);
+$("#ted4").toggle_select(['necrophile', 'overall, a very decent man']);</pre>
 			</div>
 		</div>
 		
@@ -313,10 +313,10 @@ if(!this.sh_languages){this.sh_languages={}}var sh_requests={};function sh_isEma
 				$("#prison-budget").text($.format.num(Math.floor(prisoners * 34373.6015)));
 		});
 		
-		$("#ted1").bool_select({first: 'serial killer', second: 'serial entrepreneur'});
-		$("#ted2").bool_select({first: 'rapist', second: 'rapper'});
-		$("#ted3").bool_select({first: 'kidnapper', second: 'babysitter'});
-		$("#ted4").bool_select({first: 'necrophile', second: 'overall, a very decent man'});
+		$("#ted1").toggle_select(['serial killer', 'serial entrepreneur']);
+		$("#ted2").toggle_select(['rapist', 'rapper', 'flapper']);
+		$("#ted3").toggle_select(['kidnapper', 'babysitter']);
+		$("#ted4").toggle_select(['necrophile', 'overall, a very decent man']);
 	});
 </script>
 </body>
