@@ -86,19 +86,26 @@
 
 
   (function($) {
-    return $.fn.toggle_select = function(o) {
+    return $.fn.toggle_select = function() {
       var toggle;
       toggle = function(elem) {
+        var children, i, _i, _ref;
+        children = elem.children();
+        for (i = _i = 1, _ref = children.length; 1 <= _ref ? _i < _ref : _i > _ref; i = 1 <= _ref ? ++_i : --_i) {
+          children[i].style.display = "none";
+        }
         return elem.click(function(e) {
-          var n, _i, _ref;
+          var i, n, _j, _ref1;
+          children = elem.children();
           n = 0;
-          for (n = _i = 0, _ref = o.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; n = 0 <= _ref ? ++_i : --_i) {
-            if (o[n] === elem.text()) {
-              elem.text(o[(n + 1) % o.length]);
-              break;
+          for (i = _j = 0, _ref1 = children.length; 0 <= _ref1 ? _j < _ref1 : _j > _ref1; i = 0 <= _ref1 ? ++_j : --_j) {
+            if (children[i].style.display !== "none") {
+              n = (i + 1) % children.length;
             }
+            children[i].style.display = "none";
           }
-          return elem.trigger('verdict_change', elem.text());
+          children[n].style.removeProperty("display");
+          return elem.trigger('verdict_change', elem);
         });
       };
       return this.each(function() {
