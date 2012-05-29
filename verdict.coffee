@@ -70,17 +70,22 @@
     list of alternative contents
 ###
 (($) ->
-  $.fn.toggle_select = (o) ->
+  $.fn.toggle_select = () ->
     
     # Add the event handlers
     toggle = (elem) ->
+      children = elem.children()
+      for i in [1...children.length]
+        children[i].style.display = "none"
       elem.click (e) ->
+        children = elem.children()
         n = 0
-        for n in [0..o.length - 1]
-          if o[n] == elem.text()
-            elem.text(o[(n + 1) % o.length])
-            break
-        elem.trigger('verdict_change', elem.text())
+        for i in [0...children.length]
+          if children[i].style.display != "none"
+            n = (i + 1) % children.length
+          children[i].style.display = "none"
+        children[n].style.removeProperty("display")
+        elem.trigger('verdict_change', elem)
     
     @each ->
       toggle $(@), 
